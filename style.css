@@ -1,0 +1,58 @@
+/* style.css */
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; /* 垂直方向の中央寄せは残しても良い */
+    align-items: center; /* 水平方向の中央寄せは残すが、widthに注意 */
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+
+    /* body自体の幅を広げて、button-gridが使えるスペースを確保する */
+    width: 100%; /* これでbodyが横幅いっぱいに広がる */
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.button-grid {
+    display: grid;
+    /* ここを調整して、例えば3列固定にするか、もっと柔軟にするか */
+    /* 例1: 3列固定で、各列が同じ幅 */
+    grid-template-columns: repeat(3, 1fr); 
+    /* 例2: 画面幅に合わせて自動調整するが、最小幅を小さくしてみる */
+    /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+    
+    gap: 50px; /* ここがボタン間の間隔 */
+    padding: 20px;
+    max-width: 900px; /* グリッドの最大幅 */
+    width: 100%; /* これが重要。親要素の幅を基準に広がる */
+    /* justify-content: center; /* グリッドアイテムを中央寄せにする場合は有効 */
+}
+
+button {
+    padding: 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* white-space: nowrap; /* テキストが長い場合に折り返しを防ぐ */
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: #004085;
+    transform: translateY(0);
+}
